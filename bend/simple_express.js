@@ -5,7 +5,7 @@ var cors = require('cors')
 var app = express()
 
 var port = 9000
-
+var fs = require("fs")
 
 // as you can see from this structure the players are on hole {1, 2, 3, 4}
 const players = {
@@ -24,6 +24,8 @@ const players = {
         { FirstName: "Faith", LastName: "Hope", ID: 12, Hole: 4, HoleLocation: "GRN" }
     ]
 }
+
+fs.writeFile('Player.txt', JSON.stringify(players), { flag: 'w+' }, err => {})
 
 
 app.use(cors())
